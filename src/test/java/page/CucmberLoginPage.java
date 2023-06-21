@@ -11,6 +11,8 @@ import utils.PropertyReader;
 import utils.Utilities;
 
 public class CucmberLoginPage extends CucumberBasePage {
+	
+	
 	public CucmberLoginPage(WebDriver driver, ExtentTest test) {
 		PageFactory.initElements(driver, this);
 		this.test = test;
@@ -56,18 +58,18 @@ public class CucmberLoginPage extends CucumberBasePage {
 	@FindBy(id = "idcard-identity")
 	public WebElement savedUsername;
 
-	@FindBy(xpath = "//p[text()='We’ve sent you an email with a link to finish resetting your password.']")
+	@FindBy(xpath = "//p[text()='Weï¿½ve sent you an email with a link to finish resetting your password.']")
 	public WebElement forgotPwdResetMsg;
 
 	public boolean enterUserName(WebDriver driver, String name) throws IOException {
 		
 		if (userName.isDisplayed()) {
 			userName.sendKeys(name);
-			log.info("enterUserName(): entered");
+//			log.info("enterUserName(): entered");
 			test.pass("user name entered");
 			return true;
 		} else {
-			log.error("enterUserName(): failed");
+//			log.error("enterUserName(): failed");
 			test.fail("UserName not entered");
 			test.addScreenCaptureFromPath(Utilities.captureScreenShot(driver));
 			return false;
@@ -78,11 +80,11 @@ public class CucmberLoginPage extends CucumberBasePage {
 		
 		if (pwd.isDisplayed()) {
 			pwd.sendKeys(password);
-			log.info("enterPassword():  entered");
+//			log.info("enterPassword():  entered");
 			test.pass("Password entered");
 			return true;
 		} else {
-			log.error("enterPassword(): not entered");
+//			log.error("enterPassword(): not entered");
 			test.fail("password shopuld be entetred corrrectly");
 			test.addScreenCaptureFromPath(Utilities.captureScreenShot(driver));
 			return false;
@@ -99,7 +101,7 @@ public class CucmberLoginPage extends CucumberBasePage {
 		if (loginButton.isDisplayed()) {
 			isbutton = true;
 			loginButton.click();
-			log.info("clickloginButton(): is clicked");
+//			log.info("clickloginButton(): is clicked");
 			test.pass("login button clicked");
 		} else {
 			test.fail("Login Button not clicked");
@@ -115,7 +117,7 @@ public class CucmberLoginPage extends CucumberBasePage {
 		if (rememberMe.isDisplayed()) {
 			ischeckbox = true;
 			rememberMe.click();
-			log.info("clickRememberMe(): remember me clicked");
+//			log.info("clickRememberMe(): remember me clicked");
 			test.pass("remember me check box clicked");
 		} else
 			log.error("clickRememberMe(): failed");
@@ -130,9 +132,11 @@ public class CucmberLoginPage extends CucumberBasePage {
 		if (forgotPwdlink.isDisplayed()) {
 			isforgotpassword = true;
 			forgotPwdlink.click();
-			log.info("clickForgotPassword(): forgotPwdlink clicked");
+//			log.info("clickForgotPassword(): forgotPwdlink clicked");
+			test.pass("clicked forgot passowrd link");
 		} else {
-			log.error("clickForgotPassword(): failed");
+//			log.error("clickForgotPassword(): failed");
+			test.fail("clicked forgot passoword link not clicked");
 			isforgotpassword = false;
 		}
 		return isforgotpassword;
@@ -142,8 +146,10 @@ public class CucmberLoginPage extends CucumberBasePage {
 		boolean isSaved = false;
 		if (savedUserNamelink.isDisplayed()) {
 			isSaved = true;
+			test.pass("isSavedUserName is displlayed");
 		} else {
 			isSaved = false;
+			test.pass("isSavedUserName is not displlayed");
 		}
 		return isSaved;
 	}
@@ -165,8 +171,10 @@ public class CucmberLoginPage extends CucumberBasePage {
 		if (forgotPasswordFormContinue.isDisplayed()) {
 			isContinue = true;
 			forgotPasswordFormContinue.click();
+			test.pass("clickforgotPasswordFormContinue passed");
 		} else {
 			isContinue = false;
+			test.fail("clickforgotPasswordFormContinue failed");
 		}
 		return isContinue;
 	}
@@ -176,8 +184,10 @@ public class CucmberLoginPage extends CucumberBasePage {
 		if (forgotPasswordFormCancel.isDisplayed()) {
 			isCancel = true;
 			forgotPasswordFormCancel.click();
+			test.pass("clickforgotPasswordFormCancel passed");
 		} else {
 			isCancel = false;
+			test.fail("clickforgotPasswordFormCancel failed");
 		}
 		return isCancel;
 	}
@@ -218,7 +228,7 @@ public class CucmberLoginPage extends CucumberBasePage {
 	public boolean forgotPwdRestMsg(WebDriver driver) throws IOException {
 		boolean isMsg = false;
 		if (forgotPwdResetMsg.getText()
-				.equals("We’ve sent you an email with a link to finish resetting your password.")) {
+				.equals("Weï¿½ve sent you an email with a link to finish resetting your password.")) {
 			test.pass("forgot password reset message displayed");
 			isMsg = true;
 		} else {

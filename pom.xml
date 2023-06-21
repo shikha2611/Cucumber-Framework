@@ -12,7 +12,7 @@
 			<version>5.3.2</version>
 		</dependency>
 		<!-- https://logging.apache.org/log4j/2.x/maven-artifacts.html#Using_Log4j_in_your_Apache_Maven_build -->
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-api</artifactId>
 			<version>2.18.0</version>
@@ -22,6 +22,8 @@
 			<artifactId>log4j-core</artifactId>
 			<version>2.18.0</version>
 		</dependency>
+		
+		-->
 		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
 		<dependency>
 			<groupId>org.apache.poi</groupId>
@@ -60,8 +62,10 @@
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
-			<version>4.7.2</version>
+			<version>4.8.2</version>
 		</dependency>
+		
+		
 		<!-- https://mvnrepository.com/artifact/io.cucumber/gherkin -->
 		<dependency>
 			<groupId>io.cucumber</groupId>
@@ -75,7 +79,8 @@
 			<version>4.11</version>
 			<scope>test</scope>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-java -->
+		
+	<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-java -->
 		<dependency>
 			<groupId>io.cucumber</groupId>
 			<artifactId>cucumber-java</artifactId>
